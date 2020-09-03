@@ -26,9 +26,10 @@ public class EsOperatorHepler {
     public void intsert(PaperDTO paperDTO) throws IOException {
         Map<String, Object> paperProperty = new HashMap<>();
         paperProperty.put("paperId", paperDTO.getPaperId());
-        paperProperty.put("paperId", paperDTO.getMajor());
-        paperProperty.put("paperId", paperDTO.getSchool());
-        paperProperty.put("paperId", paperDTO.getContent());
+        paperProperty.put("major", paperDTO.getMajor());
+        paperProperty.put("paperTitle",paperDTO.getTitle());
+        paperProperty.put("school", paperDTO.getSchool());
+        paperProperty.put("content", paperDTO.getContent());
         IndexRequest paper = new IndexRequest("paper").source(paperProperty);
         clients.index(paper, RequestOptions.DEFAULT);
     }

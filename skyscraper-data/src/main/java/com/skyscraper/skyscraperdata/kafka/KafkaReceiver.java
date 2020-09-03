@@ -26,16 +26,17 @@ public class KafkaReceiver {
     EsOperatorHepler esOperatorHepler;
 
     //kafka在消费的时候，必须指定消费的topic和groupId，
-    @KafkaListener(topics = "hello", groupId = "test-hello-group")
+    @KafkaListener(topics = "ss", groupId = "test-hello-group")
     public void listen(ConsumerRecord<?, ?> record, Acknowledgment ack) throws IOException {
         log.info("record===={}", record);
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
         if (kafkaMessage.isPresent()) {
-
             Object msg = kafkaMessage.get();
-            PaperDTO paperDTO = JSON.parseObject(JSON.toJSONString(msg), PaperDTO.class);
+            String s = JSON.toJSONString(msg).replace("\\","");
+            String substring = s.substring(1, s.length() - 1);
+            log.info("s:   {}",substring);
+            PaperDTO paperDTO = JSON.parseObject(substring, PaperDTO.class);
             esOperatorHepler.intsert(paperDTO);
-            log.info("record@===================={}", record);
             log.info("msg@={}", msg);
             //设置ack之后,kafka在处理完消息之后，会通知zookeeper该条消息已经被消费，broker就将该条消息丢弃，
             //该条消息就不会被重复消费。这里也就是值的是手动提交偏移量。
