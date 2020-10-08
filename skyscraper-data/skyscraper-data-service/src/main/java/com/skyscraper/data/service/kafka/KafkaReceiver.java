@@ -1,8 +1,8 @@
-package com.skyscraper.skyscraperdata.kafka;
+package com.skyscraper.data.service.kafka;
 
 import com.alibaba.fastjson.JSON;
-import com.skyscraper.skyscraperdata.dto.PaperDTO;
-import com.skyscraper.skyscraperdata.elasticsearch.helper.EsOperatorHepler;
+import com.skyscraper.data.service.dto.PaperDTO;
+import com.skyscraper.data.service.elasticsearch.helper.EsOperatorHepler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

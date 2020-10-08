@@ -1,5 +1,6 @@
-package com.skyscraper.skyscraperdata.elasticsearch.config;
+package com.skyscraper.data.service.elasticsearch.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.search.ClearScrollRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
@@ -17,8 +18,9 @@ import java.util.List;
 /**
  * create by sumerian on 2020/7/3
  * <p>
- * desc:es使用邮标进行查询
+ * desc:es使用游标进行查询
  **/
+@Slf4j
 public class EsScrollUtil {
     public static List<SearchHit> scrollSearchAll(RestHighLevelClient client, Long scrollTimeOut, SearchRequest request) {
         Scroll scroll = new Scroll(TimeValue.timeValueMillis(scrollTimeOut));
@@ -27,7 +29,7 @@ public class EsScrollUtil {
         try {
             SearchResponse response = client.search(request, RequestOptions.DEFAULT);
             String scrollId = response.getScrollId();
-            System.out.println("scrollId:" + scrollId);
+            log.info("scrollId:" + scrollId);
             SearchHit[] hits = response.getHits().getHits();
             while (hits != null && hits.length != 0) {
                 for (SearchHit hit : hits) {

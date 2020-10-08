@@ -1,13 +1,14 @@
-package com.skyscraper.skyscraperdata;
+package com.skyscraper.data.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SkyscraperDataApplication {
+public class
+SkyscraperDataServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SkyscraperDataApplication.class, args);
+        SpringApplication.run(SkyscraperDataServiceApplication.class, args);
     }
 
 }

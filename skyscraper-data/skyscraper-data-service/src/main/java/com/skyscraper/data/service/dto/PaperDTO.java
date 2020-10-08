@@ -1,4 +1,4 @@
-package com.skyscraper.skyscraperdata.dto;
+package com.skyscraper.data.service.dto;
 
 import lombok.Data;
 

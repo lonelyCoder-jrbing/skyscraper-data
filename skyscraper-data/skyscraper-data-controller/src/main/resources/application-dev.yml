@@ -1,6 +1,10 @@
 server:
   port: 9090
 spring:
+    dubbo:
+      application:
+        name: service-provider
+      base-package:
   kafka:
     bootstrap-servers: localhost:9092
     producer:

@@ -1,4 +1,4 @@
-package com.skyscraper.skyscraperdata.elasticsearch.config;
+package com.skyscraper.data.service.elasticsearch.config;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;

@@ -1,8 +1,7 @@
-package com.skyscraper.skyscraperdata.elasticsearch.helper;
+package com.skyscraper.data.service.elasticsearch.helper;
 
-import com.skyscraper.skyscraperdata.dto.PaperDTO;
+import com.skyscraper.data.service.dto.PaperDTO;
 import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;
