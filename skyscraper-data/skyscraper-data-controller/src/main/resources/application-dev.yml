@@ -4,7 +4,7 @@ spring:
     dubbo:
       application:
         name: service-provider
-      base-package:
+      base-package: com.skyscraper.data
   kafka:
     bootstrap-servers: localhost:9092
     producer:

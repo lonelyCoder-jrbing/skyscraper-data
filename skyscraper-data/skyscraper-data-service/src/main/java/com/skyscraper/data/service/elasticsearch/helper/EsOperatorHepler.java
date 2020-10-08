@@ -1,6 +1,6 @@
 package com.skyscraper.data.service.elasticsearch.helper;
 
-import com.skyscraper.data.service.dto.PaperDTO;
+import com.skyscraper.data.api.dto.PaperDTO;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;

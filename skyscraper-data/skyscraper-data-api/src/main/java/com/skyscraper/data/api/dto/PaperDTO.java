@@ -1,4 +1,4 @@
-package com.skyscraper.data.service.dto;
+package com.skyscraper.data.api.dto;
 
 import lombok.Data;
 
@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Data
 public class PaperDTO implements Serializable {
     private static final long serialVersionUID = 1084899868919390227L;
+
     private String paperId;
     private String content;
     private String title;
