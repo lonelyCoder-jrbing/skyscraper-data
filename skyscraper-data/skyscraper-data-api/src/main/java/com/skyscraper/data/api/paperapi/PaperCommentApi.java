@@ -41,4 +41,15 @@ public interface PaperCommentApi {
      * @return
      */
     List<PaperDTO> getPaperByContent(String content);
+
+    /***
+     * 使用文章名称模糊查询文章
+     * @param title
+     * @return
+     */
+    List<PaperDTO> getPaperByTiltle(String title);
+
+
+
+
 }

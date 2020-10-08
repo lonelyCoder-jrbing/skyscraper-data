@@ -12,6 +12,7 @@ public interface PaperConstant {
 
     String MAJOR = "major";
 
+
     String PAPER_TITLE = "paperTitle";
 
 

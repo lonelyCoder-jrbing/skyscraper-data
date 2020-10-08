@@ -106,6 +106,24 @@ public class PaperCommentServiceImpl implements PaperCommentApi {
         return res;
     }
 
+    @Override
+    public List<PaperDTO> getPaperByTiltle(String title) {
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.from(0);
+        searchSourceBuilder.size(10);
+        searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+        SearchRequest request = new SearchRequest(PaperConstant.PAPER_INDEX);
+        searchSourceBuilder.query(QueryBuilders.fuzzyQuery(PaperConstant.PAPER_TITLE, title));
+        request.source(searchSourceBuilder);
+        List<SearchHit> hits = EsScrollUtil.scrollSearchAll(clients, 300L, request);
+        List<PaperDTO> res = new ArrayList<>(hits.size());
+        for (SearchHit hit : hits) {
+            PaperDTO paperDTO = JSON.parseObject(hit.getSourceAsString(), PaperDTO.class);
+            res.add(paperDTO);
+        }
+        return res;
+    }
+
 
     SearchRequest getSearchRequest() {
         return null;
