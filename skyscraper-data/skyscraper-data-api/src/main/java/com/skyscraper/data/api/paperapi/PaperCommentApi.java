@@ -43,7 +43,7 @@ public interface PaperCommentApi {
     List<PaperDTO> getPaperByContent(String content);
 
     /***
-     * 使用文章名称模糊查询文章
+     * 使用文章标题模糊查询文章
      * @param title
      * @return
      */

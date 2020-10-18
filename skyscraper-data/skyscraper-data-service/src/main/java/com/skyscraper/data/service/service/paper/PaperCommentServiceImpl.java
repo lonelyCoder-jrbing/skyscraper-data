@@ -22,7 +22,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.DEFAULT_LOADBALANCE;
 /**
  * create by sumerian on 2020/10/8
  * <p>
- * desc:
+ * desc: 从es中查询文章信息
  **/
 @Service(group = "PaperCommentService",
         retries = 2,
